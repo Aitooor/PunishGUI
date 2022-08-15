@@ -1,5 +1,5 @@
 punish:
-  no-args: '%prefi% &cYou have tu put a player'
+  no-args: '%prefix% &cYou have tu put a player'
   antipunish: '%prefix% &cYou cant punish you'
   no-permissions: '%prefix% &cYou dont have permissions'
 punishments:

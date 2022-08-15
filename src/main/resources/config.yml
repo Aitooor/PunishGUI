@@ -1,63 +1,79 @@
-prefix: '&7[&9nPunishments&7]'
+prefix: '&7[&9nPunishments&7] '
 inventory:
   gui:
-    name: Punishment %player%
+    name: '&9Punishment %player%'
     size: 27
     fill:
       active: true
-      material: 'STAINED_GLASS_PANE'
+      material: STAINED_GLASS_PANE
       name: '&a'
       lore:
-      - '&a'
+        - '&a'
       id: 7
+    close:
+      active: true
+      slot: 9
+      name: '&cClose'
+      material: REDSTONE
+      lore:
+        - ''
+        - '&cClose the menu'
+        - ''
+      id: 0
     categories:
       warns:
-        name: '&c&lWarns'
+        name: 'Warns'
         id: '0'
         material: DIAMOND_BLOCK
         lore:
+          - ''
           - '&aClick to open &bwarns &acategory'
-        slot: 1
+          - ''
+        slot: 12
         submenus:
           name: 'Warn'
           size: 27
           items:
-            hacks:
-              name: 'spam'
+            spam:
+              name: spam
               id: '0'
               material: DIAMOND_BLOCK
               lore:
                 - '&aClick to warn &b%player% &afor spam'
-              slot: 1
+              slot: 14
               commands:
-                - 'warn%player% spam'
+                - warn%player% spam
       mutes:
-        name: '&c&lMutes'
+        name: 'Mutes'
         id: '0'
         material: DIAMOND_BLOCK
         lore:
+          - ''
           - '&aClick to open &bmutes &acategory'
-        slot: 2
+          - ''
+        slot: 14
         submenus:
           name: 'Mute'
           size: 27
           items:
-            hacks:
-              name: 'spam'
+            spam:
+              name: Spam
               id: '0'
               material: DIAMOND_BLOCK
               lore:
                 - '&aClick to mute &b%player% &afor spam'
-              slot: 1
+              slot: 14
               commands:
-                - 'mute%player% spam'
+                - mute%player% spam
       bans:
-        name: '&c&lBans'
+        name: 'Bans'
         id: '0'
         material: DIAMOND_BLOCK
         lore:
+          - ''
           - '&aClick to open &bbans &acategory'
-        slot: 3
+          - ''
+        slot: 16
         submenus:
           name: 'Ban'
           size: 27
@@ -67,7 +83,7 @@ inventory:
               id: '0'
               material: DIAMOND_BLOCK
               lore:
-                - '&aClick to ban &b%player% for hacks'
-              slot: 1
+                - 'Click to ban &b%player% for hacks'
+              slot: 14
               commands:
                 - ban%player% hacks

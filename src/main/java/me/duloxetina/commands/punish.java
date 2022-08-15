@@ -25,12 +25,12 @@ public class punish implements CommandExecutor {
         Player player = (Player) sender;
         String prefix = plugin.getConfig().getString("prefix");
         FileConfiguration m = messages.get();
-        OfflinePlayer target = Bukkit.getOfflinePlayer(args[0]);
         if(player.hasPermission("npunishments.punish")){
             if(args.length < 1) {
                 CC.message(player, m.getString("punish.no-args").replace("%prefix%", prefix));
                 return true;
             } else {
+                OfflinePlayer target = Bukkit.getOfflinePlayer(args[0]);
                 if(player.getName() == target.getName()){
                     CC.message(player, m.getString("punish.antipunish").replace("%prefix%", prefix));
                 } else {
@@ -39,7 +39,7 @@ public class punish implements CommandExecutor {
                 }
             }
         } else {
-            CC.message(player, m.getString("punishments.no-permission").replace("%prefix%", prefix));
+            CC.message(player, m.getString("punishments.no-permissions").replace("%prefix%", prefix));
         }
         return false;
     }

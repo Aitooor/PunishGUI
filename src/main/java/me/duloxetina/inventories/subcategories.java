@@ -21,7 +21,7 @@ public class subcategories implements InventoryHolder {
 
 
     public subcategories(String target, String serverName) {
-        inv = Bukkit.createInventory(this, nPunishment.get().getConfig().getInt("inventory.gui.categories."+serverName+".submenus.size"), nPunishment.get().getConfig().getString("inventory.gui.categories."+serverName+".submenus.name") +target);
+        inv = Bukkit.createInventory(this, nPunishment.get().getConfig().getInt("inventory.gui.categories."+serverName+".submenus.size"), CC.translate(nPunishment.get().getConfig().getString("inventory.gui.categories."+serverName+".submenus.name") +target));
         init(target, serverName);
 
     }
@@ -30,8 +30,7 @@ public class subcategories implements InventoryHolder {
 
 
     private void init(String target, String serverName) {
-        String player = target;
-        ItemStack profile;
+
         FileConfiguration config = nPunishment.get().getConfig();
         if(nPunishment.get().getConfig().getBoolean("inventory.gui.fill.active")){
             for (int i = 0; i < inv.getSize(); ++i) {
@@ -50,6 +49,22 @@ public class subcategories implements InventoryHolder {
                 item.setItemMeta(meta);
                 inv.setItem(i, item);
             }
+        }
+        if(nPunishment.get().getConfig().getBoolean("inventory.gui.close.active")){
+            String material = nPunishment.get().getConfig().getString("inventory.gui.close.material");
+            int id = nPunishment.get().getConfig().getInt("inventory.gui.close.id");
+            String name = nPunishment.get().getConfig().getString("inventory.gui.close.name");
+            ItemStack item = new ItemStack(Material.getMaterial(material), 1, (short)id);
+            ItemMeta meta = item.getItemMeta();
+
+            List<String> lore = new ArrayList<>();
+            for(String lore2 : nPunishment.get().getConfig().getStringList("inventory.gui.close.lore")){
+                lore.add(CC.translate(lore2));
+            }
+            meta.setDisplayName(CC.translate(name));
+            meta.setLore(lore);
+            item.setItemMeta(meta);
+            inv.setItem(nPunishment.get().getConfig().getInt("inventory.gui.close.slot") - 1, item);
         }
         for (final String serverName2 : config.getConfigurationSection("inventory.gui.categories."+serverName+".submenus.items").getKeys(false)) {
             inv.setItem(config.getInt("inventory.gui.categories."+ serverName + ".submenus.items."+serverName2+".slot") - 1, createItem(serverName, serverName2, target));

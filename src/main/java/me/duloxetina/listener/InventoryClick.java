@@ -3,6 +3,7 @@ package me.duloxetina.listener;
 import me.duloxetina.inventories.gui;
 import me.duloxetina.inventories.subcategories;
 import me.duloxetina.nPunishment;
+import me.duloxetina.utils.CC;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -26,14 +27,18 @@ public class InventoryClick implements Listener {
         }
         if(e.getClickedInventory().getHolder() instanceof subcategories) {
             e.setCancelled(true);
+
             for (final String serverName : nPunishment.get().getConfig().getConfigurationSection("inventory.gui.categories").getKeys(false)) {
                 for (final String serverName2 : nPunishment.get().getConfig().getConfigurationSection("inventory.gui.categories."+serverName+".submenus.items").getKeys(false)) {
                     String nameInv = nPunishment.get().getConfig().getString("inventory.gui.categories."+serverName+".submenus.name");
-                    if(e.getClickedInventory().getName().startsWith(nameInv)){
+                    if(e.getSlot() == nPunishment.get().getConfig().getInt("inventory.gui.close.slot") - 1) {
+                        player.closeInventory();
+                    }
+                    if(e.getClickedInventory().getName().startsWith(CC.translate(nameInv))){
                         if(e.getSlot() == nPunishment.get().getConfig().getInt("inventory.gui.categories."+serverName+".submenus.items."+serverName2+".slot") -1){
                             List<String> commands = nPunishment.get().getConfig().getStringList("inventory.gui.categories."+serverName+".submenus.items."+serverName2+".commands");
                             commands.forEach(action -> {
-                                action = action.replace("%player%", e.getClickedInventory().getName().split(nameInv)[1]);
+                                action = action.replace("%player%", e.getClickedInventory().getName().split(CC.translate(nameInv))[1]);
                                 player.performCommand(action);
                                 return;
                             });

@@ -23,11 +23,11 @@ public class punishments implements CommandExecutor {
         if(player.isOp()){
             if(args.length < 1) {
                 CC.message(player, CC.LONG_LINE);
-                CC.message(player, "&4↪ &9Neptune Punishments &4↩");
+                CC.message(player, "&4↪ &9&lNeptune Punishments &4↩");
                 CC.message(player, "");
-                CC.message(player, "&7➥ &9/p &f<player>");
-                CC.message(player, "&7➥ &9/punishments reload");
-                CC.message(player, "&7➥ &9/punishments info");
+                CC.message(player, "&7&l➥ &9&l/p &f<player>");
+                CC.message(player, "&7&l➥ &9&l/punishments reload");
+                CC.message(player, "&7&l➥ &9&l/punishments info");
                 CC.message(player, "");
                 CC.message(player, CC.LONG_LINE);
                 return true;
@@ -42,19 +42,28 @@ public class punishments implements CommandExecutor {
             if(args[0].equalsIgnoreCase("info")){
                 CC.message(player, CC.LONG_LINE);
                 CC.message(player, "");
-                CC.message(player, "&4↪ &9Neptune Punishments &4↩");
+                CC.message(player, "&4&l↪ &9&lNeptune Punishments &4↩");
                 CC.message(player, "");
-                CC.message(player, "&7➥ &9Author&7: &f"+plugin.getDescription().getAuthors());
-                CC.message(player, "&7➥ &9Version&7: &f"+plugin.getDescription().getVersion());
-                CC.message(player, "&7➥ &9Discord&7: &fdiscord.gg/KkavTp8BqR");
+                CC.message(player, "&7&l➥ &9&lAuthor&7: &f"+plugin.getDescription().getAuthors());
+                CC.message(player, "&7&l➥ &9&lVersion&7: &f"+plugin.getDescription().getVersion());
+                CC.message(player, "&7&l➥ &9&lDiscord&7: &fdiscord.gg/KkavTp8BqR");
                 CC.message(player, "");
                 CC.message(player, CC.LONG_LINE);
+                return true;
             }
+            CC.message(player, CC.LONG_LINE);
+            CC.message(player, "&4↪ &9&lNeptune Punishments &4↩");
+            CC.message(player, "");
+            CC.message(player, "&7&l➥ &9&l/p &f<player>");
+            CC.message(player, "&7&l➥ &9&l/punishments reload");
+            CC.message(player, "&7&l➥ &9&l/punishments info");
+            CC.message(player, "");
+            CC.message(player, CC.LONG_LINE);
+            return true;
         } else {
-            CC.message(player, m.getString("punishments.no-permission").replace("%prefix%", prefix));
+            CC.message(player, m.getString("punishments.no-permissions").replace("%prefix%", prefix));
             return true;
         }
 
-        return false;
     }
 }

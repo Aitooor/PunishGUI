@@ -21,7 +21,7 @@ public class gui implements InventoryHolder {
 
 
     public gui(String target) {
-        inv = Bukkit.createInventory(this, nPunishment.get().getConfig().getInt("inventory.gui.size"), nPunishment.get().getConfig().getString("inventory.gui.name").replace("%player%", target));
+        inv = Bukkit.createInventory(this, nPunishment.get().getConfig().getInt("inventory.gui.size"), CC.translate(nPunishment.get().getConfig().getString("inventory.gui.name").replace("%player%", target)));
         init(target);
 
     }
@@ -30,8 +30,6 @@ public class gui implements InventoryHolder {
 
 
     private void init(String target) {
-        String player = target;
-        ItemStack profile;
         FileConfiguration config = nPunishment.get().getConfig();
         if(nPunishment.get().getConfig().getBoolean("inventory.gui.fill.active")){
             for (int i = 0; i < inv.getSize(); ++i) {

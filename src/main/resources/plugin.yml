@@ -12,3 +12,5 @@ commands:
     - 'p'
   punishments:
     description: Main command
+    aliases:
+    - 'punishment'
