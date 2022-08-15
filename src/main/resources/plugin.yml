@@ -1,0 +1,14 @@
+name: nPunishments
+main: me.duloxetina.nPunishment
+authors:
+  - 'Duloxetina#5207'
+description: A gui of punishments
+version: 1.0
+
+commands:
+  punish:
+    description: Open the punish gui
+    aliases:
+    - 'p'
+  punishments:
+    description: Main command

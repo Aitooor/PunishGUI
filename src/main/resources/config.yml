@@ -1,0 +1,73 @@
+prefix: '&7[&9nPunishments&7]'
+inventory:
+  gui:
+    name: Punishment %player%
+    size: 27
+    fill:
+      active: true
+      material: 'STAINED_GLASS_PANE'
+      name: '&a'
+      lore:
+      - '&a'
+      id: 7
+    categories:
+      warns:
+        name: '&c&lWarns'
+        id: '0'
+        material: DIAMOND_BLOCK
+        lore:
+          - '&aClick to open &bwarns &acategory'
+        slot: 1
+        submenus:
+          name: 'Warn'
+          size: 27
+          items:
+            hacks:
+              name: 'spam'
+              id: '0'
+              material: DIAMOND_BLOCK
+              lore:
+                - '&aClick to warn &b%player% &afor spam'
+              slot: 1
+              commands:
+                - 'warn%player% spam'
+      mutes:
+        name: '&c&lMutes'
+        id: '0'
+        material: DIAMOND_BLOCK
+        lore:
+          - '&aClick to open &bmutes &acategory'
+        slot: 2
+        submenus:
+          name: 'Mute'
+          size: 27
+          items:
+            hacks:
+              name: 'spam'
+              id: '0'
+              material: DIAMOND_BLOCK
+              lore:
+                - '&aClick to mute &b%player% &afor spam'
+              slot: 1
+              commands:
+                - 'mute%player% spam'
+      bans:
+        name: '&c&lBans'
+        id: '0'
+        material: DIAMOND_BLOCK
+        lore:
+          - '&aClick to open &bbans &acategory'
+        slot: 3
+        submenus:
+          name: 'Ban'
+          size: 27
+          items:
+            hacks:
+              name: hacks
+              id: '0'
+              material: DIAMOND_BLOCK
+              lore:
+                - '&aClick to ban &b%player% for hacks'
+              slot: 1
+              commands:
+                - ban%player% hacks

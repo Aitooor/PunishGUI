@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="nPunishments:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/nPunishments_jar</output-path>
+    <root id="archive" name="nPunishments.jar">
+      <element id="module-output" name="nPunishments" />
+    </root>
+  </artifact>
+</component>

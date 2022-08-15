@@ -1,0 +1,7 @@
+punish:
+  no-args: '%prefi% &cYou have tu put a player'
+  antipunish: '%prefix% &cYou cant punish you'
+  no-permissions: '%prefix% &cYou dont have permissions'
+punishments:
+  reload: '%prefix% &aThe plugin has been reloaded'
+  no-permissions: '%prefix% &cYou dont have permissions'
